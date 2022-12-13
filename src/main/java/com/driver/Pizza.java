@@ -2,36 +2,38 @@ package com.driver;
 
 public class Pizza {
 
-    private int price;
+    private int price;// total price of pizza
     private Boolean isVeg;
     private String bill;
-
-    private int CheesePrice;
+    private int cheesePrice;
     private int toppingPrice;
-    private int bagPrice;
-    boolean CheesePriceAdded ;
-    boolean toppingPricesAdded;
-    boolean bagPriceAdded ;
-    boolean isBillGenrated;
+    private int paperBagPrice;
+
+
+    private  boolean extraCheese;
+    private boolean isBillGenerated;
+    private boolean extraTopping;
+    private boolean takeAway;
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
-        this.CheesePrice = 80;
-        this.bagPrice = 20;
-        // your code goes here
-        if(isVeg==true){
-            this.price = 300;
-            this.toppingPrice = 70;
-        }else{
-            this.price = 400;
-            this.toppingPrice = 120;
-        }
+        this.cheesePrice=80;
+        this.paperBagPrice=20;
 
-        this.CheesePriceAdded = false;
-        this.toppingPricesAdded = false;
-        this.bagPriceAdded = false;
-        this.isBillGenrated = false;
-        this.bill = "Base Price Of The Pizza "+this.price+'\n';
-       // System.out.println("Base Price Of The Pizza "+this.price+'\n');
+
+        if(isVeg==true){
+            this.price=300;
+            this.toppingPrice=70;
+        }
+        else{
+            this.price= 400;
+            this.toppingPrice=120;
+        }
+        extraCheese=false;
+        extraTopping=false;
+        takeAway=false;
+
+        this.bill="Base Price Of The Pizza: "+this.price+"\n";
+        // your code goes here
     }
 
     public int getPrice(){
@@ -39,57 +41,40 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        // your code goes here
-        if(CheesePriceAdded==false){
-            this.price = this.price + this.CheesePrice;
-            CheesePriceAdded = true;
+        if(extraCheese==false){
+            this.price=this.price+this.cheesePrice;
+            extraCheese=true;// your code goes here
         }
-
-        return;
     }
 
     public void addExtraToppings(){
-        // your code goes here
-        if(toppingPricesAdded==false){
-            this.price = this.price + this.toppingPrice;
-            toppingPricesAdded = true;
+        if(extraTopping==false){
+            this.price=this.price+this.toppingPrice;
+            extraTopping=true;// your code goes here
         }
-
-        return;
     }
 
     public void addTakeaway(){
-        // your code goes here
-        if(bagPriceAdded==false){
-            this.price = this.price + this.bagPrice;
-            bagPriceAdded = true;
+        if(takeAway==false){
+            this.price=this.price+this.paperBagPrice;
+            takeAway=true;// your code goes here
         }
-
-        return;
     }
 
     public String getBill(){
-        // your code goes here
-        if(isBillGenrated==false){
-            if(CheesePriceAdded==true){
-                this.bill = "Extra Cheese Added: "+this.CheesePrice+'\n';
-                CheesePriceAdded = false;
-
+        if(isBillGenerated==false){
+            if(extraCheese==true){
+                this.bill=this.bill+"Extra Cheese Added: "+this.cheesePrice+"\n";// your code goes here
             }
-            if(toppingPricesAdded==true){
-                this.bill = "Extra Toppings Added: "+this.toppingPrice+'\n';
-                toppingPricesAdded = false;
+            if(extraTopping==true){
+                this.bill=this.bill+"Extra Toppings Added: "+this.toppingPrice+"\n";
             }
-            if(bagPriceAdded==true){
-                this.bill = "Paper bag Added: "+this.bagPrice+'\n';
-                bagPriceAdded = false;
+            if(takeAway==true){
+                this.bill=this.bill+"Paperbag Added: "+this.paperBagPrice+"\n";
             }
-            this.bill = "Total Price:" + this.price;
-            isBillGenrated = true;
-
+            this.bill=this.bill+"Total Price: "+this.price+"\n";
+            isBillGenerated=true;
         }
-
-
         return this.bill;
     }
 }
