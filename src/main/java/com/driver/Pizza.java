@@ -30,7 +30,8 @@ public class Pizza {
         this.toppingPricesAdded = false;
         this.bagPriceAdded = false;
         this.isBillGenrated = false;
-        System.out.println("Base Price Of The Pizza "+this.price+'\n');
+        this.bill = "Base Price Of The Pizza "+this.price+'\n';
+       // System.out.println("Base Price Of The Pizza "+this.price+'\n');
     }
 
     public int getPrice(){
